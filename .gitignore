@@ -205,3 +205,14 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ignore dataset
+data/raw_midi/
+data/processed/
+data/train_test_split/
+
+# ignore virtual env
+venv/
+
+# optional large outputs
+*.npy
