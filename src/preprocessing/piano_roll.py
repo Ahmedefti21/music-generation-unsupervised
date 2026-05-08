@@ -21,6 +21,9 @@ def midi_to_binary_piano_roll(midi_path, fs=16):
     merged_roll = np.maximum.reduce(all_rolls)
     binary_roll = (merged_roll > 0).astype(np.float32)
 
+    # Retain only piano range (MIDI pitches 21 through 108)
+    binary_roll = binary_roll[21:109, :]
+
     return binary_roll
 
 
@@ -34,7 +37,9 @@ def segment_piano_roll(piano_roll, window_size=128, stride=64):
 
     for start in range(0, total_steps - window_size + 1, stride):
         window = piano_roll[:, start:start + window_size]
-        windows.append(window)
+        # Filter sparse windows: discard if < 2% of cells are active
+        if np.count_nonzero(window) / window.size >= 0.02:
+            windows.append(window)
 
     return windows
 
@@ -94,7 +99,7 @@ def piano_roll_to_midi(piano_roll, output_path, fs=16, program=0, threshold=0.1,
                 if end - start >= min_note_duration:
                     note = pretty_midi.Note(
                         velocity=80,
-                        pitch=int(pitch),
+                        pitch=int(pitch + 21),
                         start=float(start),
                         end=float(end)
                     )

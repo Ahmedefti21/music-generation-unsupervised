@@ -3,7 +3,7 @@ import torch.nn as nn
 
 
 class LSTMAutoencoder(nn.Module):
-    def __init__(self, input_size=128, hidden_size=256, latent_size=128, num_layers=2):
+    def __init__(self, input_size=88, hidden_size=256, latent_size=128, num_layers=2):
         super().__init__()
 
         self.encoder = nn.LSTM(

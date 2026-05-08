@@ -1,0 +1,32 @@
+{
+  "Random Generator": {
+    "num_notes": 80.0,
+    "rhythm_diversity": 0.20375000000000001,
+    "repetition_ratio": 0.0013157894736842105,
+    "pitch_histogram_similarity": 0.37788081459764433
+  },
+  "Markov Chain": {
+    "num_notes": 120.0,
+    "rhythm_diversity": 0.07333333333333333,
+    "repetition_ratio": 0.0008620689655172414,
+    "pitch_histogram_similarity": 0.32887598650007666
+  },
+  "Task 1: Autoencoder": {
+    "num_notes": 40.2,
+    "rhythm_diversity": 0.4536528146756229,
+    "repetition_ratio": 0.018571428571428572,
+    "pitch_histogram_similarity": 0.48081069622789385
+  },
+  "Task 2: VAE": {
+    "num_notes": 67.85714285714286,
+    "rhythm_diversity": 0.08303526733176904,
+    "repetition_ratio": 0.013555383632651827,
+    "pitch_histogram_similarity": 0.35501505604959
+  },
+  "Task 3: Transformer": {
+    "num_notes": 266.8,
+    "rhythm_diversity": 0.08240852789278137,
+    "repetition_ratio": 0.037845219752120955,
+    "pitch_histogram_similarity": 0.5355156322553297
+  }
+}

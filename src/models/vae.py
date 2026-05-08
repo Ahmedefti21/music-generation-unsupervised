@@ -3,13 +3,14 @@ import torch.nn as nn
 
 
 class MusicVAE(nn.Module):
-    def __init__(self, input_size=128, hidden_size=256, latent_size=64, num_layers=2):
+    def __init__(self, input_size=88, hidden_size=256, latent_size=128,
+                 enc_num_layers=2, dec_num_layers=1):
         super().__init__()
 
         self.encoder = nn.LSTM(
             input_size=input_size,
             hidden_size=hidden_size,
-            num_layers=num_layers,
+            num_layers=enc_num_layers,
             batch_first=True
         )
 
@@ -21,7 +22,7 @@ class MusicVAE(nn.Module):
         self.decoder = nn.LSTM(
             input_size=hidden_size,
             hidden_size=hidden_size,
-            num_layers=num_layers,
+            num_layers=dec_num_layers,
             batch_first=True
         )
 
